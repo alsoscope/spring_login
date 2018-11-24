@@ -32,15 +32,15 @@ public class MemberController {
 MemberService memberService;
 
 	//로그인 화면
-	@RequestMapping(value="member/loginGET.do", method=RequestMethod.GET)
-	public String loginGET(@ModelAttribute("dto") MemberDTO dto) {
+	@RequestMapping(value="member/loginGET", method=RequestMethod.GET)
+	public String loginGET() {
 		return "member/loginGET";
 	}
 	
 	//로그인 처리
-	@RequestMapping(value="member/loginPOST.do", method=RequestMethod.POST )
+	@RequestMapping(value="member/loginPost", method=RequestMethod.POST )
 	public void loginPOST(HttpSession session, Model model, MemberDTO dto) throws Exception {
-		MemberVO vo=memberService.login(dto);
+		MemberVO vo=memberService.login(dto); //로그인이 성공하면 MemberVO 값 반환
 		if(vo==null) {
 			return; //return false; , return undefined;
 		}

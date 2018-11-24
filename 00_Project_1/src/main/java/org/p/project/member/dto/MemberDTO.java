@@ -1,21 +1,21 @@
 package org.p.project.member.dto;
 
 public class MemberDTO {
-	private String sessionId;
-	private String sessionPw;
+	private String userId;
+	private String userPw;
 	private boolean useCookie;
 	
-	public String getSessionId() {
-		return sessionId;
+	public String getUserId() {
+		return userId;
 	}
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getSessionPw() {
-		return sessionPw;
+	public String getUserPw() {
+		return userPw;
 	}
-	public void setSessionPw(String sessionPw) {
-		this.sessionPw = sessionPw;
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
 	public boolean isUseCookie() {
 		return useCookie;
@@ -25,7 +25,7 @@ public class MemberDTO {
 	}
 	@Override
 	public String toString() {
-		return "MemberDTO [sessionId=" + sessionId + ", sessionPw=" + sessionPw + ", useCookie=" + useCookie + "]";
+		return "MemberDTO [userId=" + userId + ", userPw=" + userPw + ", useCookie=" + useCookie + "]";
 	}
 }
 	

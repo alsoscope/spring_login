@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
 	<title>Login V19</title>
@@ -6,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="${pageContext.request.contextPath }/images/icons/favicon.ico"/>
+	<%-- <link rel="icon" type="image/png" href="${pageContext.request.contextPath }/images/icons/favicon.ico"/> --%>
 <!--===============================================================================================-->
-	<!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.min.css/">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -28,12 +29,29 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/main.css">
 <!--===============================================================================================-->
 </head>
+
+	<!-- uid, pw null 체크 -->
+	<script>
+		$("#submit-btn").click(function() {
+			var uid = $("#userId").val();
+			var pw = $("#userPw").val();
+			
+			if (userId == null || userId == "") {
+				alert("아이디를 입력해주세요.");
+				return false;
+			} else if (userPw == null || userPw == "") {
+				alert("비밀번호를 입력해주세요.");
+				return false;
+			}
+		});
+	</script>
+	
 <body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" name="form1" method="post" action="loginPOST.do">
+				<form class="login100-form validate-form" name="form1" method="post" action="${pageContext.request.contextPath }/member/loginPost">
 					<span class="login100-form-title p-b-33">
 						Account Login
 					</span>
@@ -51,9 +69,10 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn">
+						<!-- <button class="login100-form-btn">
 							Sign in
-						</button>
+						</button> -->
+						<input id="submit-btn" type="submit" value="Sign in" class="login100-form-btn">						
 					</div>
 
 					<div class="text-center p-t-45 p-b-4">
@@ -71,7 +90,7 @@
 							Create an account?
 						</span>
 
-						<a href="write.do" class="txt2 hov1">
+						<a href="${pageContext.request.contextPath }/member/write.do" class="txt2 hov1">
 							Sign up
 						</a>
 					</div>
@@ -80,30 +99,31 @@
 		</div>
 	</div>
 <!--===============================================================================================-->
-	<!-- <script src="vendor/jquery/jquery-3.2.1.min.js"></script> -->
-	<script src="<c:url value="/resources/vendor/jquery/jquery.3.2.1.min.js" />"></script>
+	<!-- script src="/resources/vendor/jquery/jquery-3.2.1.min.js"></script> -->
+	<%-- <script src="<c:url value="/vendor/jquery/jquery.3.2.1.min.js" />"></script> --%>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<!-- <script src="vendor/animsition/js/animsition.min.js"></script> -->
-	<script src="<c:url value="/resources/vendor/animsition/js/animsition.min.js" />"></script>
+	<script src="<c:url value="/vendor/animsition/js/animsition.min.js" />"></script>
 <!--===============================================================================================-->
 	<!-- <script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>-->
-	<script src="<c:url value="/resources/vendor/bootstrap/js/popper.js" />"></script>
-	<script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.min.js" />"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
+	<script src="<c:url value="/vendor/bootstrap/js/popper.js" />"></script>
+	<script src="<c:url value="/vendor/bootstrap/js/bootstrap.min.js" />"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="<c:url value="/resources/vendor/select2/select2.min.js" />"></script>
+	<!-- <script src="vendor/select2/select2.min.js"></script> -->
+	<script src="<c:url value="/vendor/select2/select2.min.js" />"></script>
 <!--===============================================================================================-->
-<!-- 	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<!-- <script src="vendor/daterangepicker/moment.min.js"></script>
 	<script src="vendor/daterangepicker/daterangepicker.js"></script> -->
-	<script src="<c:url value="/resources/vendor/daterangepicker/moment.min.js" />"></script>
-	<script src="<c:url value="/resources/vendor/daterangepicker/daterangepicker.js" />"></script>
+	<script src="<c:url value="/vendor/daterangepicker/moment.min.js" />"></script>
+	<script src="<c:url value="/vendor/daterangepicker/daterangepicker.js" />"></script>
 <!--===============================================================================================-->
 	<!-- <script src="vendor/countdowntime/countdowntime.js"></script> -->
-	<script src="<c:url value="/resources/vendor/countdowntime/countdowntime.js" />"></script>
+	<script src="<c:url value="/vendor/countdowntime/countdowntime.js" />"></script>
 <!--===============================================================================================-->
 	<!-- <script src="js/main.js"></script> -->
-	<scirpt src="<c:url value="/resources/js/main.js"/>"></scirpt>
+	<script src="<c:url value="/js/main.js"/>"></script>
 
 </body>
 </html>

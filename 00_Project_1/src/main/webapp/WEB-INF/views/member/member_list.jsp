@@ -11,11 +11,11 @@
 <body>
 <%@ include file="../include/member_menu.jsp" %>
 	
- 		<c:if test="${dto.userId==null }">
+ 		<c:if test="${login.userId==null }">
 			GUEST
 		</c:if>
-		<c:if test="${dto.userId!=null}">
-			${dto.userId }님 로그인 중
+		<c:if test="${login.userId!=null}">
+			${login.userId }님 로그인 중
 		</c:if>
 		
 	<h2>회원 목록</h2>

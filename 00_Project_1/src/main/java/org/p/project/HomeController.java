@@ -24,7 +24,7 @@ public class HomeController {
 	 */
 	
 	//시작 페이지 mapping 변경
-	@RequestMapping("/")
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model) {
 		//model:데이터를 담는 그릇 역할, map 구조로 저장된다
 		//model.addAttribute("변수명", 값);

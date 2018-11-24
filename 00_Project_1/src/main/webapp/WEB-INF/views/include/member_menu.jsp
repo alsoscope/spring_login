@@ -6,7 +6,7 @@
 			GUEST
 		</c:if>
 		<c:if test="${login.userId!=null}">
-			${vo.userId }님 로그인 중
+			${login.userId }님 로그인 중
 		</c:if>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
 	<div style="text-align:center";>
