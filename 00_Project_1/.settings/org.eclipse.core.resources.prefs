@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/callback_js.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/member/admin_main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/member/loginGET.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/naverlogin_js.jsp=UTF-8

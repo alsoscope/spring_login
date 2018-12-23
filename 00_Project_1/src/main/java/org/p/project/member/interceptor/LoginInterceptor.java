@@ -44,7 +44,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			String dest = (String) session.getAttribute("dest");
 */			
 			/*response.sendRedirect(dest != null ? dest : "/");*/
-			response.sendRedirect("/");
+			/*response.sendRedirect("/");*/
+			response.sendRedirect("/member/list.do");
 		}
 	}
 	

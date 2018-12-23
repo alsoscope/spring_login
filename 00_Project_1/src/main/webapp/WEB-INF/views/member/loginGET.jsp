@@ -6,8 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="${pageContext.request.contextPath }/images/icons/favicon.ico"/>
 	<%-- <link rel="icon" type="image/png" href="${pageContext.request.contextPath }/images/icons/favicon.ico"/> --%>
+	<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath }/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.min.css/">
 <!--===============================================================================================-->
@@ -30,22 +30,6 @@
 <!--===============================================================================================-->
 </head>
 
-	<!-- uid, pw null 체크 -->
-	<script>
-		$("#submit-btn").click(function() {
-			var uid = $("#userId").val();
-			var pw = $("#userPw").val();
-			
-			if (userId == null || userId == "") {
-				alert("아이디를 입력해주세요.");
-				return false;
-			} else if (userPw == null || userPw == "") {
-				alert("비밀번호를 입력해주세요.");
-				return false;
-			}
-		});
-	</script>
-	
 <body>
 	
 	<div class="limiter">
@@ -75,6 +59,8 @@
 						<input id="submit-btn" type="submit" value="Sign in" class="login100-form-btn">						
 					</div>
 
+					<div id="naver_id_login">naver_id_login</div>
+
 					<div class="text-center p-t-45 p-b-4">
 						<span class="txt1">
 							Forgot
@@ -98,6 +84,8 @@
 			</div>
 		</div>
 	</div>
+	
+
 <!--===============================================================================================-->
 	<!-- script src="/resources/vendor/jquery/jquery-3.2.1.min.js"></script> -->
 	<%-- <script src="<c:url value="/vendor/jquery/jquery.3.2.1.min.js" />"></script> --%>
@@ -125,5 +113,33 @@
 	<!-- <script src="js/main.js"></script> -->
 	<script src="<c:url value="/js/main.js"/>"></script>
 
+	<!-- uid, pw null 체크 -->
+	<script>
+		$("#submit-btn").click(function() {
+			var uid = $("#userId").val();
+			var pw = $("#userPw").val();
+			
+			if (userId == null || userId == "") {
+				alert("아이디를 입력해주세요.");
+				return false;
+			} else if (userPw == null || userPw == "") {
+				alert("비밀번호를 입력해주세요.");
+				return false;
+			}
+		});
+	</script>
+
+	<!-- "네이버 아이디로 로그인" 버튼 노출 영역 -->
+	<script type="text/javascript">
+ 		var naver_id_login = new naver_id_login("p1SdIeQnCgBNAcOrb_fu", "http://localhost:3306/member/loginNaver");
+ 		var state = naver_id_login.getUniqState();
+		
+ 		naver_id_login.setButton("green", 3, 40);
+ 		naver_id_login.setDomain("http://localhost:3306/member/loginGET");
+ 		naver_id_login.setState(state);
+ 		naver_id_login.init_naver_id_login();
+	</script>
 </body>
+
+	
 </html>

@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -54,9 +56,24 @@ MemberService memberService;
 		}*/
 	}
 	
+	//로그아웃
+	@RequestMapping(value="member/logout", method=RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+		Object obj=session.getAttribute("login");
+		
+		if(obj!=null) {
+			MemberVO vo=(MemberVO)obj;
+			
+			session.removeAttribute("login");
+			session.invalidate();
+		}
+		logger.info("Logout Success");
+		return "redirect:/";
+	}
+	
 	//01 회원목록
 	//url pattern mapping
-	@RequestMapping("member/list.do")
+	@RequestMapping("/member/list.do")
 	public String memberList(Model model) {
 		//controller->service->dao 요청
 		List<MemberVO> list=memberService.memberList();

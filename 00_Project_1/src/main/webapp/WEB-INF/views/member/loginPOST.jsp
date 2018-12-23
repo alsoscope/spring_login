@@ -10,7 +10,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		self.location="${path }/member/list.do";
+		self.location="member/list.do";
 	</script>
 </body>
 </html>
